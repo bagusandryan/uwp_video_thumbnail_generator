@@ -25,7 +25,6 @@ namespace VideoThumbnailGenerator.Views
         {
             string filename = "catvideo.mp4";
             StorageFile videofile = await Windows.ApplicationModel.Package.Current.InstalledLocation.GetFileAsync(@"Assets\" + filename);
-            Stream fileStream = await videofile.OpenStreamForReadAsync();
             GenerateVideoThumbnail(videofile);
         }
 
