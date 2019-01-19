@@ -38,7 +38,7 @@ namespace VideoThumbnailGenerator.Views
             MediaComposition mediaComposition = new MediaComposition();
             var videoFile = await MediaClip.CreateFromFileAsync(file);
             mediaComposition.Clips.Add(videoFile);
-            TimeSpan interval = videoFile.OriginalDuration.Add(new TimeSpan(videoFile.OriginalDuration.Ticks/2));
+            TimeSpan interval = videoFile.OriginalDuration.Add(new TimeSpan(-(videoFile.OriginalDuration.Ticks/2)));
 
             var thumbnail = await mediaComposition.GetThumbnailAsync(interval, 640, 360, VideoFramePrecision.NearestKeyFrame);
             BitmapDecoder decoder = await BitmapDecoder.CreateAsync(thumbnail);
