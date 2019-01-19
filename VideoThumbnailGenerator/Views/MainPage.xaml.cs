@@ -19,6 +19,8 @@ namespace VideoThumbnailGenerator.Views
             NavigationCacheMode = Windows.UI.Xaml.Navigation.NavigationCacheMode.Enabled;
         }
 
+        // We will load a file called catvideo.mp4 and then give it to the GenerateVideoThumbnail function
+        // which will process the video and extract a thumbnail from it
         protected override async void OnNavigatedTo(NavigationEventArgs e)
         {
             string filename = "catvideo.mp4";
@@ -27,6 +29,10 @@ namespace VideoThumbnailGenerator.Views
             GenerateVideoThumbnail(videofile);
         }
 
+        // This method will generate a thumbnail from a video file
+        // The thumbnail will come from one frame of the video
+        // The frame comes from the half of the video total duration
+        // To-Do: Only video file will be accepted
         private async void GenerateVideoThumbnail(StorageFile file)
         {
             MediaComposition mediaComposition = new MediaComposition();
